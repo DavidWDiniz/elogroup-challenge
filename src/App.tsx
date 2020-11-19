@@ -1,8 +1,13 @@
-import React from 'react';
+import React from "react";
+import GlobalStyle from "./styles/global";
+import Register from "./pages/Register";
 
 function App() {
     return (
-        <h1>EloGroup</h1>
+        <>
+            <Register />
+            <GlobalStyle />
+        </>
     );
 }
 
