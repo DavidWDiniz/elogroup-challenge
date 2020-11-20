@@ -1,11 +1,12 @@
 import React from "react";
 import GlobalStyle from "./styles/global";
-import Register from "./pages/Register";
+
+import Routes from "./routes/routes";
 
 function App() {
     return (
         <>
-            <Register />
+            <Routes />
             <GlobalStyle />
         </>
     );

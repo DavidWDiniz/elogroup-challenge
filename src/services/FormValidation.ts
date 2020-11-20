@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-export const schema = Yup.object().shape({
+export const schemaSignUp = Yup.object().shape({
     user: Yup.string().required("Usuário obrigatório"),
     password: Yup.string()
         .required("Senha obrigatória")
@@ -10,5 +10,5 @@ export const schema = Yup.object().shape({
         ),
     password_confirmation: Yup.string()
         .required("Confirmação de senha obrigatória")
-        .oneOf([Yup.ref("password")], "confirmação incorreta"),
+        .oneOf([Yup.ref("password")], "confirmação de senha incorreta"),
 });
