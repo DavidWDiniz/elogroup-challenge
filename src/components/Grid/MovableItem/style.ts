@@ -8,7 +8,7 @@ export const Movable = styled.div<MovableProps>`
     border-radius: 10px;
     background-color: #B14A3B;
     height: 100px;
-    width: 170px;
+    width: 250px;
     margin: 10px auto;
     display: flex;
     justify-content: center;

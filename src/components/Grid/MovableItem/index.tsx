@@ -1,20 +1,51 @@
 import {useDrag} from "react-dnd";
 import {Movable} from "./style";
 import React from "react";
+import {COLUMN_NAMES} from "../../../services/GridData";
 
-interface MovableItemProps {
-    setIsFirstColumn: React.Dispatch<React.SetStateAction<boolean>>;
+interface Item {
+    name: string;
+    type: string;
 }
 
-const MovableItem: React.FC<MovableItemProps> = ({setIsFirstColumn}) => {
+interface MovableItemProps {
+    name: string;
+    currentColumnName: string;
+    setItems: React.Dispatch<React.SetStateAction<{id: number, name: string, column: string}[]>>;
+}
+
+const MovableItem: React.FC<MovableItemProps> = ({currentColumnName, name, setItems}) => {
+    const changeItemColumn = (currentItem: Item | undefined, columnName: string) => {
+        setItems((prevState) => {
+            return prevState.map(e => {
+                return {
+                    ...e,
+                    column: e.name === currentItem?.name ? columnName : e.column,
+                };
+            });
+        });
+    };
+
     const [{ isDragging }, drag] = useDrag({
-        item: { name: 'Any custom name', type: 'Our first type' },
+        item: { name, currentColumnName, type: 'Our first type' },
         end: (item, monitor) => {
             const dropResult = monitor.getDropResult();
-            if(dropResult && dropResult.name === 'Column 1'){
-                setIsFirstColumn(true);
-            } else {
-                setIsFirstColumn(false);
+            if (dropResult) {
+                const {name} = dropResult;
+                const {FirstColumn, SecondColumn, ThirdColumn} = COLUMN_NAMES;
+                switch (name) {
+                    case FirstColumn:
+                        changeItemColumn(item, FirstColumn);
+                        break;
+                    case SecondColumn:
+                        changeItemColumn(item, SecondColumn);
+                        break;
+                    case ThirdColumn:
+                        changeItemColumn(item, ThirdColumn);
+                        break;
+                    default:
+                        break;
+                }
             }
         },
         collect: (monitor) => ({
@@ -24,7 +55,7 @@ const MovableItem: React.FC<MovableItemProps> = ({setIsFirstColumn}) => {
 
     return (
         <Movable ref={drag} dragOpacity={isDragging}>
-            We will move this item
+            {name}
         </Movable>
     );
 }

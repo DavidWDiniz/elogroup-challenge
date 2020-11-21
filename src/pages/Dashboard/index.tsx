@@ -1,32 +1,20 @@
-import React, {useState} from "react";
+import React from "react";
 
 import {Container} from "./style";
-import {DndProvider} from "react-dnd";
-import {HTML5Backend} from "react-dnd-html5-backend";
+import {Button} from "../../components/SignUpForm/style";
 
-import Column from "../../components/Grid/Column";
-import MovableItem from "../../components/Grid/MovableItem";
+import Grid from "../../components/Grid";
+import logo from "../../images/logo-EloGroup-branco.png";
 
 const Dashboard = () => {
-    const [isFirstColumn, setIsFirstColumn] = useState(true);
-
-    const Item = <MovableItem setIsFirstColumn={setIsFirstColumn} />
-
     return (
         <Container>
-            <DndProvider backend={HTML5Backend}>
-                <Column title="Column 1">
-                    {isFirstColumn && Item}
-                </Column>
-
-                <Column title="Column 2">
-                    {!isFirstColumn && Item}
-                </Column>
-
-            </DndProvider>
+            <img src={logo} alt="EloGroup" />
+            <h1>Painel de Leads</h1>
+            <Button>Novo Lead (+)</Button>
+            <Grid />
         </Container>
     );
-
 }
 
 export default Dashboard;
