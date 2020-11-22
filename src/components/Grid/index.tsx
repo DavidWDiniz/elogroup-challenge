@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
 import Column from "./Column";
@@ -9,6 +9,17 @@ import {Container} from "./style";
 const Grid = () => {
     const [items, setItems] = useState(leads);
     const {FirstColumn, SecondColumn, ThirdColumn} = COLUMN_NAMES;
+
+    useEffect(() => {
+        const data = localStorage.getItem("@Leads");
+        if (data) {
+            setItems(JSON.parse(data));
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("@Leads", JSON.stringify(items))
+    }, [items]);
 
     const returnItemsForColumn = (columnName: string) => {
         return items
