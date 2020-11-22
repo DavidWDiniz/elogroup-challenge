@@ -32,6 +32,10 @@ export const Form = styled.form`
         }
     }
 
+    input {
+        margin-right: 32px;
+    }
+
     @media(min-width: 1028px) {
         width: 350px;
         background: #1d313e;

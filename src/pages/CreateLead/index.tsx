@@ -1,9 +1,12 @@
 import React from "react";
 import CreateLeadForm from "../../components/CreateLeadForm";
+import {Container} from "./style";
 
 const CreateLead = () => {
     return (
-        <CreateLeadForm />
+        <Container>
+            <CreateLeadForm />
+        </Container>
     );
 }
 
