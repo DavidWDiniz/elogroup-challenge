@@ -8,7 +8,7 @@ export const Movable = styled.div<MovableProps>`
     border-radius: 10px;
     background-color: #B14A3B;
     height: 100px;
-    width: 250px;
+    width: 90px;
     margin: 10px auto;
     display: flex;
     justify-content: center;
@@ -16,4 +16,9 @@ export const Movable = styled.div<MovableProps>`
     text-align: center;
     opacity: ${props => props.dragOpacity ? 0.4 : 1};
     cursor: pointer;
+
+    @media(min-width: 1028px) {
+        height: 100px;
+        width: 250px;
+    }
 `;

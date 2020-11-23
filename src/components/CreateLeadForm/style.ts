@@ -5,58 +5,49 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 32px;
 
     div {
-        display: flex;
-        flex-direction: column;
-        div {
-            position: relative;
+        position: relative;
 
-            label {
-                font-size: 14px;
-                margin-bottom: 8px;
-            }
-
-            input {
-                width: 100%;
-                background: #F5F8FA;
-                border: 1px solid #D3E2E5;
-                border-radius: 8px;
-                color: #1d313e;
-                height: 64px;
-                padding: 0 16px;
-                margin-bottom: 48px;
-            }
-
-            p {
-                position: absolute;
-                color: #ff3216;
-                font-size: 14px;
-                bottom: 12px;
-            }
-        }
-    }
-
-    div {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
         label {
             font-size: 14px;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
 
         input {
-            margin-right: 32px;
+            width: 100%;
+            background: #F5F8FA;
+            border: 1px solid #D3E2E5;
+            border-radius: 8px;
+            color: #1d313e;
+            height: 64px;
+            padding: 0 16px;
+            margin-bottom: 48px;
         }
 
-         p {
+        p {
+            position: absolute;
             color: #ff3216;
             font-size: 14px;
-            bottom: 5px;
+            bottom: 12px;
         }
     }
 
+    label {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    input {
+        margin-right: 32px;
+    }
+
+    p {
+        color: #ff3216;
+        font-size: 14px;
+        bottom: 5px;
+    }
 
     @media(min-width: 1028px) {
         width: 600px;

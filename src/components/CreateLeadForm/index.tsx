@@ -52,66 +52,61 @@ const CreateLeadForm = () => {
         localStorage.setItem("@Leads", JSON.stringify(items));
         history.push("/dashboard");
         toast.success("Lead incluído com sucesso!");
-        console.log(items);
     }
 
     return (
-          <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
               <div>
-                  <div>
-                      <label>Nome *</label>
-                      <input
-                          name="name"
-                          ref={register}
-                      />
-                      <p>{errors.name?.message}</p>
-                  </div>
-                  <div>
-                      <label>Telefone *</label>
-                      <input
-                          type="number"
-                          name="phone"
-                          ref={register}
-                      />
-                      <p>{errors.phone?.message}</p>
-                  </div>
-                  <div>
-                      <label>Email *</label>
-                      <input
-                          name="email"
-                          ref={register}
-                      />
-                      <p>{errors.email?.message}</p>
-                  </div>
+                  <label>Nome *</label>
+                  <input
+                      name="name"
+                      ref={register}
+                  />
+                  <p>{errors.name?.message}</p>
               </div>
               <div>
-                  <label>Oportunidades *</label>
-                  <CheckboxGroup>
-                      <label>
-                          <AllCheckerCheckbox name="items" ref={register} value="" />
-                          Selecionar todas
-                      </label>
-                      <label>
-                          <Checkbox name="items" ref={register} value="RPA"/>
-                          RPA
-                      </label>
-                      <label>
-                          <Checkbox name="items" ref={register} value="Produto"/>
-                          Produto Digital
-                      </label>
-                      <label>
-                          <Checkbox name="items" ref={register} value="Analytics"/>
-                          Analytics
-                      </label>
-                      <label>
-                          <Checkbox name="items" ref={register} value="BMP"/>
-                          BMP
-                      </label>
-                  </CheckboxGroup>
-                  <p>{errors.items?.message}</p>
-                  <Button type="submit">Salvar</Button>
+                  <label>Telefone *</label>
+                  <input
+                      type="number"
+                      name="phone"
+                      ref={register}
+                  />
+                  <p>{errors.phone?.message}</p>
               </div>
-          </Form>
+              <div>
+                  <label>Email *</label>
+                  <input
+                      name="email"
+                      ref={register}
+                  />
+                  <p>{errors.email?.message}</p>
+              </div>
+              <label>Oportunidades *</label>
+              <CheckboxGroup>
+                  <label>
+                      <AllCheckerCheckbox name="items" ref={register} value="" />
+                      Selecionar todas
+                  </label>
+                  <label>
+                      <Checkbox name="items" ref={register} value="RPA"/>
+                      RPA
+                  </label>
+                  <label>
+                      <Checkbox name="items" ref={register} value="Produto"/>
+                      Produto Digital
+                  </label>
+                  <label>
+                      <Checkbox name="items" ref={register} value="Analytics"/>
+                      Analytics
+                  </label>
+                  <label>
+                      <Checkbox name="items" ref={register} value="BMP"/>
+                      BMP
+                  </label>
+              </CheckboxGroup>
+              <p>{errors.items?.message}</p>
+              <Button type="submit">Salvar</Button>
+      </Form>
     );
 }
 
