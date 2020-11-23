@@ -6,6 +6,7 @@ import {Button} from "../../components/SignUpForm/style";
 import Grid from "../../components/Grid";
 import logo from "../../images/logo-EloGroup-branco.png";
 import { useHistory } from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 
 const Dashboard = () => {
     const history = useHistory();
@@ -15,12 +16,15 @@ const Dashboard = () => {
     }, [history]);
 
     return (
-        <Container>
-            <img src={logo} alt="EloGroup" />
-            <h1>Painel de Leads</h1>
-            <Button onClick={handleClickToCreateLead}>Novo Lead (+)</Button>
-            <Grid />
-        </Container>
+        <>
+            <Container>
+                <img src={logo} alt="EloGroup" />
+                <h1>Painel de Leads</h1>
+                <Button onClick={handleClickToCreateLead}>Novo Lead (+)</Button>
+                <Grid />
+            </Container>
+            <ToastContainer position="top-right" />
+        </>
     );
 }
 

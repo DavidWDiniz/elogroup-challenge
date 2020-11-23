@@ -2,6 +2,7 @@ import {useDrag} from "react-dnd";
 import {Movable} from "./style";
 import React from "react";
 import {COLUMN_NAMES} from "../../../services/GridData";
+import {Leads} from "../index";
 
 interface Item {
     name: string;
@@ -10,11 +11,12 @@ interface Item {
 
 interface MovableItemProps {
     name: string;
+    value: string;
     currentColumnName: string;
-    setItems: React.Dispatch<React.SetStateAction<{id: number, name: string, column: string}[]>>;
+    setItems: React.Dispatch<React.SetStateAction<Leads[]>>;
 }
 
-const MovableItem: React.FC<MovableItemProps> = ({currentColumnName, name, setItems}) => {
+const MovableItem: React.FC<MovableItemProps> = ({currentColumnName, name, value, setItems}) => {
     const changeItemColumn = (currentItem: Item | undefined, columnName: string) => {
         setItems((prevState) => {
             return prevState.map(e => {
@@ -55,7 +57,7 @@ const MovableItem: React.FC<MovableItemProps> = ({currentColumnName, name, setIt
 
     return (
         <Movable ref={drag} dragOpacity={isDragging}>
-            {name}
+            {value}
         </Movable>
     );
 }

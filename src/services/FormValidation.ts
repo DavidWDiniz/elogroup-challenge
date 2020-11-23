@@ -10,12 +10,12 @@ export const schemaSignUp = Yup.object().shape({
         ),
     password_confirmation: Yup.string()
         .required("Confirmação de senha obrigatória.")
-        .oneOf([Yup.ref("password")], "confirmação de senha incorreta."),
+        .oneOf([Yup.ref("password")], "Confirmação de senha incorreta."),
 });
 
 export const schemaCreateLead = Yup.object().shape({
     name: Yup.string().required("Nome obrigatório."),
-    phone: Yup.string().required("Telefone obrigatório"),
-    email: Yup.string().required("email obrigatório").email("Insira um email válido"),
-    items: Yup.string().required("Selecione ao menos um item.")
+    phone: Yup.string().required("Telefone obrigatório."),
+    email: Yup.string().required("Email obrigatório.").email("Insira um email válido"),
+    items: Yup.string().required("Selecione ao menos um item."),
 });
