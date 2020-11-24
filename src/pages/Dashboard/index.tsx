@@ -1,12 +1,12 @@
 import React, {useCallback} from "react";
-
-import {Container} from "./style";
-import {Button} from "../../components/SignUpForm/style";
+import 'react-toastify/dist/ReactToastify.css';
+import {useHistory} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 
 import Grid from "../../components/Grid";
 import logo from "../../images/logo-EloGroup-branco.png";
-import { useHistory } from "react-router-dom";
-import {ToastContainer} from "react-toastify";
+
+import {Button, Container} from "./style";
 
 const Dashboard = () => {
     const history = useHistory();
@@ -18,12 +18,12 @@ const Dashboard = () => {
     return (
         <>
             <Container>
-                <img src={logo} alt="EloGroup" />
+                <img src={logo} alt="EloGroup"/>
                 <h1>Painel de Leads</h1>
                 <Button onClick={handleClickToCreateLead}>Novo Lead (+)</Button>
-                <Grid />
+                <Grid/>
             </Container>
-            <ToastContainer position="top-right" />
+            <ToastContainer position="top-right"/>
         </>
     );
 }

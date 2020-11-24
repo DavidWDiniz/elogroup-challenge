@@ -1,16 +1,23 @@
 import React from "react";
 import {useDrop} from "react-dnd";
-import {Container} from "./style";
+
 import {COLUMN_NAMES} from "../../../services/GridData";
+
+import {Container} from "./style";
 
 interface ColumnProps {
     title: string;
 }
 
 const Column: React.FC<ColumnProps> = ({children, title}) => {
-    const [, drop] = useDrop({
-        accept: "Our first type",
+
+    const [{isOver, canDrop}, drop] = useDrop({
+        accept: "Movable",
         drop: () => ({name: title}),
+        collect: (monitor) => ({
+            isOver: monitor.isOver(),
+            canDrop: monitor.canDrop(),
+        }),
         canDrop: (item: any) => {
             const {FirstColumn, SecondColumn, ThirdColumn} = COLUMN_NAMES;
             const {currentColumnName} = item;
@@ -21,7 +28,7 @@ const Column: React.FC<ColumnProps> = ({children, title}) => {
     });
 
     return (
-        <Container ref={drop}>
+        <Container ref={drop} isOver={isOver} canDrop={canDrop}>
             {title}
             {children}
         </Container>

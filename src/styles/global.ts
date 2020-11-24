@@ -6,7 +6,7 @@ export default createGlobalStyle`
         padding: 0;
         outline: none;
         box-sizing: border-box;
-        font-family: "Open Sans", serif;
+        font-family: "Open Sans", sans-serif;
     }
 
     body {
@@ -15,6 +15,6 @@ export default createGlobalStyle`
     }
 
     body, input, button, textarea {
-        font: 600 18px Nunito, sans-serif;
+        font: 600 18px "Open Sans", sans-serif;
     }
 `;

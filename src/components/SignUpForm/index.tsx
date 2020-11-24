@@ -1,10 +1,11 @@
 import React, {useCallback} from "react";
-import {Button, Form} from "./style";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 import {schemaSignUp} from "../../services/FormValidation";
+
+import {Button, Form} from "./style";
 
 const SignUpForm = () => {
     const history = useHistory();
@@ -13,8 +14,11 @@ const SignUpForm = () => {
         resolver: yupResolver(schemaSignUp)
     });
 
-    const onSubmit = useCallback(() => {
+    const onSubmit = useCallback((data) => {
+
+        localStorage.setItem("@User", JSON.stringify(data));
         history.push("/dashboard");
+
     }, [history]);
 
     return (

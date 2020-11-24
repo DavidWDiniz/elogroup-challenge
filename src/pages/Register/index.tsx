@@ -1,15 +1,15 @@
 import React from "react";
 
+import SignUpForm from "../../components/SignUpForm";
 import logo from "../../images/logo-EloGroup-branco.png";
 
 import {Container} from "./style";
-import SignUpForm from "../../components/SignUpForm";
 
 const Register = () => {
     return (
         <Container>
-            <img src={logo} alt="EloGroup" />
-            <SignUpForm />
+            <img src={logo} alt="EloGroup"/>
+            <SignUpForm/>
         </Container>
     );
 }

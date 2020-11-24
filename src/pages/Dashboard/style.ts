@@ -44,3 +44,21 @@ export const Container = styled.div`
           }
     }
 `;
+
+export const Button = styled.button`
+    margin-top: 32px;
+    width: 100%;
+    height: 64px;
+    border: none;
+    cursor: pointer;
+    background: #B14A3B;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-weight: 800;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background: #d55342;
+    }
+
+`;

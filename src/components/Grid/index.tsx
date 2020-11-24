@@ -1,9 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
-import Column from "./Column";
+import {TouchBackend} from "react-dnd-touch-backend";
+import { isMobile } from "react-device-detect";
+
 import {COLUMN_NAMES, leads} from "../../services/GridData";
+import Column from "./Column";
 import MovableItem from "./MovableItem";
+
 import {Container} from "./style";
 
 export interface Leads {
@@ -31,23 +35,22 @@ const Grid = () => {
         localStorage.setItem("@Leads", JSON.stringify(items));
     }, [items]);
 
-    const returnItemsForColumn = (columnName: string) => {
-            return items
-                ?.filter((item) => item.column === columnName)
-                .map((item) => (
-                    <MovableItem
-                        key={item.id}
-                        name={item.name}
-                        value={item.value}
-                        currentColumnName={item.column}
-                        setItems={setItems}
-                    />
-                ));
-    }
+    const returnItemsForColumn = useCallback((columnName: string) => {
+        return items
+            ?.filter((item) => item.column === columnName)
+            .map((item) => (
+                <MovableItem
+                    key={item.id}
+                    name={item.name}
+                    value={item.value}
+                    currentColumnName={item.column}
+                    setItems={setItems}
+                />
+            ))}, [items]);
 
     return (
         <Container>
-            <DndProvider backend={HTML5Backend}>
+            <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
                 <Column title={FirstColumn}>
                     {returnItemsForColumn(FirstColumn)}
                 </Column>

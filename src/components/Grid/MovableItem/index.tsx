@@ -1,8 +1,10 @@
+import React, {useCallback} from "react";
 import {useDrag} from "react-dnd";
-import {Movable} from "./style";
-import React from "react";
+
 import {COLUMN_NAMES} from "../../../services/GridData";
 import {Leads} from "../index";
+
+import {Movable} from "./style";
 
 interface Item {
     name: string;
@@ -17,7 +19,8 @@ interface MovableItemProps {
 }
 
 const MovableItem: React.FC<MovableItemProps> = ({currentColumnName, name, value, setItems}) => {
-    const changeItemColumn = (currentItem: Item | undefined, columnName: string) => {
+
+    const changeItemColumn = useCallback((currentItem: Item | undefined, columnName: string) => {
         setItems((prevState) => {
             return prevState.map(e => {
                 return {
@@ -26,10 +29,10 @@ const MovableItem: React.FC<MovableItemProps> = ({currentColumnName, name, value
                 };
             });
         });
-    };
+    }, [setItems]);
 
-    const [{ isDragging }, drag] = useDrag({
-        item: { name, currentColumnName, type: 'Our first type' },
+    const [{isDragging}, drag] = useDrag({
+        item: {name, currentColumnName, type: "Movable"},
         end: (item, monitor) => {
             const dropResult = monitor.getDropResult();
             if (dropResult) {
