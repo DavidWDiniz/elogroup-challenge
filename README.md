@@ -29,7 +29,7 @@ Utilizando npm
 
    `npm start`
 
-##Observações
+## Observações
 
 Toda a persistência de dados foi feita utilizando localStorage.
 
