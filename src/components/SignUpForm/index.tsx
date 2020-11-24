@@ -17,6 +17,7 @@ const SignUpForm = () => {
     const onSubmit = useCallback((data) => {
 
         localStorage.setItem("@User", JSON.stringify(data));
+        localStorage.removeItem("@Logged");
         history.push("/");
 
     }, [history]);
