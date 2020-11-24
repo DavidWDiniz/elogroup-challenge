@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import 'react-toastify/dist/ReactToastify.css';
-import {useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {ToastContainer} from "react-toastify";
 
 import Grid from "../../components/Grid";
@@ -15,11 +15,18 @@ const Dashboard = () => {
         history.push("/create-lead");
     }, [history]);
 
+    const removeLocalStorage = useCallback(() => {
+        localStorage.removeItem("@User");
+        localStorage.removeItem("@Leads");
+        localStorage.removeItem("@Logged");
+    }, []);
+
     return (
         <>
             <Container>
                 <img src={logo} alt="EloGroup"/>
                 <h1>Painel de Leads</h1>
+                <Link to="/" onClick={removeLocalStorage}>Sair</Link>
                 <Button onClick={handleClickToCreateLead}>Novo Lead (+)</Button>
                 <Grid/>
             </Container>

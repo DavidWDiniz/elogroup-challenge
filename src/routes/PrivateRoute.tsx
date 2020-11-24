@@ -10,7 +10,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({component: Component, ...res
         <Route
             {...rest}
             render={({location}) =>
-                localStorage.getItem("@User") ? (
+                localStorage.getItem("@Logged") ? (
                     <Component/>
                 ) : (
                     <Redirect to={{

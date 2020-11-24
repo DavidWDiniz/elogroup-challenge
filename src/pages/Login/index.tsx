@@ -1,17 +1,18 @@
 import React from "react";
 
-import SignUpForm from "../../components/SignUpForm";
+import SignInForm from "../../components/SignInForm";
 import logo from "../../images/logo-EloGroup-branco.png";
 
 import {Container} from "./style";
 
-const Register = () => {
+
+const Login = () => {
     return (
         <Container>
-            <SignUpForm/>
             <img src={logo} alt="EloGroup"/>
+            <SignInForm/>
         </Container>
     );
 }
 
-export default Register;
+export default Login;

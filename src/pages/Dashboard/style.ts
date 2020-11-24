@@ -11,16 +11,20 @@ export const Container = styled.div`
         margin: 32px 0;
     }
 
-    button {
-        width: 300px;
-        height: 64px;
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 48px;
+        text-decoration: none;
         border: none;
         cursor: pointer;
         background: #B14A3B;
         border-radius: 8px;
         color: #FFFFFF;
         font-weight: 800;
-        margin-bottom: 8px;
+        margin: 32px;
         transition: background-color 0.2s;
 
         &:hover {
@@ -42,12 +46,18 @@ export const Container = styled.div`
               margin-top: 32px;
               margin-right: 675px;
           }
+
+          a {
+              position: absolute;
+              margin: 0;
+              top: 32px;
+              right: 150px;
+          }
     }
 `;
 
 export const Button = styled.button`
-    margin-top: 32px;
-    width: 100%;
+    width: 300px;
     height: 64px;
     border: none;
     cursor: pointer;
@@ -55,6 +65,7 @@ export const Button = styled.button`
     border-radius: 8px;
     color: #FFFFFF;
     font-weight: 800;
+    margin-bottom: 8px;
     transition: background-color 0.2s;
 
     &:hover {

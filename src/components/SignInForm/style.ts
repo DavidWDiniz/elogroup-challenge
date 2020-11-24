@@ -1,19 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-     a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 32px;
-        text-decoration: none;
-        cursor: pointer;
-        color: #FFFFFF;
-        font-weight: 800;
-     }
-`;
-
 export const Form = styled.form`
     width: 275px;
 

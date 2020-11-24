@@ -19,3 +19,8 @@ export const schemaCreateLead = Yup.object().shape({
     email: Yup.string().required("Email obrigatório.").email("Insira um email válido"),
     items: Yup.string().required("Selecione ao menos um item."),
 });
+
+export  const schemaSignIn = Yup.object().shape({
+    user: Yup.string().required("Usuário obrigatório."),
+    password: Yup.string().required("Senha obrigatória.")
+});
