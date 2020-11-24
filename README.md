@@ -4,6 +4,8 @@
 O objetivo do desafio será desenvolver a camada de FrontEnd para uma aplicação que irá fazer o gerenciamento de
 Leads (oportunidades comerciais) para o processo comercial de uma empresa.
 
+Uma versão online do desafio pode ser acessada clicando [aqui](https://desafio-elogroup.netlify.app/).
+
 ## Tecnologias
 
 Esse projeto foi desenvolvido utilizando React com Typescript :
